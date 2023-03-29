@@ -9,7 +9,7 @@ Para executar a aplicação, siga os seguintes passos:
 1. Certifique-se de ter o .NET SDK instalado em sua máquina (versão mínima: 6.0).
 2. Faça o clone deste repositório em sua máquina.
 3. Abra o terminal ou prompt de comando na pasta raiz do projeto.
-4. Execute o seguinte comando: `dotnet run`.
+4. Execute o seguinte comando: `dotnet run --project .\POC.GoldenRaspberryAwards.API\`.
 5. A aplicação será iniciada e os dados serão processados. Ao final, o resultado será exibido no console.
 
 ## Executando os testes
