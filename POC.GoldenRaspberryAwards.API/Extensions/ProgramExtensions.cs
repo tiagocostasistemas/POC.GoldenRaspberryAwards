@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 using POC.GoldenRaspberryAwards.API.Application;
 using POC.GoldenRaspberryAwards.API.Data.Contexts;
 using POC.GoldenRaspberryAwards.API.Data.Repositories;
@@ -13,10 +14,11 @@ public static class ProgramExtensions
         
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
-        
+
+        var root = new InMemoryDatabaseRoot();
+
         services.AddDbContext<DataContext>(options =>
-            options.UseInMemoryDatabase("golden_raspberry_awards_db"),
-            ServiceLifetime.Singleton
+            options.UseInMemoryDatabase("golden_raspberry_awards_db", root)
         );
 
         services.AddTransient<IAwardService, AwardService>();

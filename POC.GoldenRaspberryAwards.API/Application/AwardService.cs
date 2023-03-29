@@ -12,11 +12,13 @@ public class AwardService : IAwardService
     }
 
     public async Task<AwardIntervals> GetAwardIntervals()
-    {
+    {   
         var movies = await _movieService.GetAll();
 
-        var awardIntervals = GetAwardIntervals(movies);
+        if(!movies.Any())
+            return new AwardIntervals();
 
+        var awardIntervals = GetAwardIntervals(movies);
         return awardIntervals;
     }
 
